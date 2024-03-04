@@ -13,8 +13,28 @@ namespace Kreta.Backend.Controllers
     [Route("api/[controller]")]
     public class EducationLevelController : BaseController<EducationLevel, EducationLevelDto>
     {
+        private readonly IEducationLevelRepo _educationLevelRepo;
         public EducationLevelController(EducationLevelAssambler assembler, IEducationLevelRepo repo) : base(assembler, repo)
         {
+            _educationLevelRepo = repo;
+        }
+
+        [HttpGet("included")]
+        public async Task<IActionResult> SelectAllIncludedAsync()
+        {
+            List<EducationLevel>? educationLevels = new();
+            if (_repo != null)
+            {
+                try
+                {
+                    educationLevels = await _educationLevelRepo.SelectAllIncluded().ToListAsync();
+                    return Ok(educationLevels.Select(entity => _assambler.ToDto(entity)));
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+            return BadRequest("Az adatok elérhetetlenek!");
         }
     }
 }
