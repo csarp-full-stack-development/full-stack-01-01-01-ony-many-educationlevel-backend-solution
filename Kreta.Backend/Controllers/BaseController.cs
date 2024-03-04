@@ -1,6 +1,5 @@
 ﻿using Kreta.Backend.Repos;
 using Kreta.Shared.Assamblers;
-using Kreta.Shared.Dtos;
 using Kreta.Shared.Models;
 using Kreta.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -12,8 +11,8 @@ namespace Kreta.Backend.Controllers
         where Tmodel : class, IDbEntity<Tmodel>, new()
         where TDto : class,new()
     {
-        private readonly Assambler<Tmodel,TDto> _assambler;
-        private readonly IRepositoryBase<Tmodel> _repo;
+        protected readonly Assambler<Tmodel,TDto> _assambler;
+        protected readonly IRepositoryBase<Tmodel> _repo;
 
         public BaseController(Assambler<Tmodel, TDto> assembler, IRepositoryBase<Tmodel> repo)
         {
