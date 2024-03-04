@@ -17,7 +17,8 @@ namespace Kreta.Shared.Extensions
                 IsWoman = student.IsWoman,
                 EducationLevelId = student.EducationLevelId,
                 SchoolYear = student.SchoolYear,
-                SchoolClass = student.SchoolClass,                
+                SchoolClass = student.SchoolClass,               
+                EducationLevel = student.EducationLevel,
             };
         }
 
@@ -34,6 +35,7 @@ namespace Kreta.Shared.Extensions
                 EducationLevelId = studentdto.EducationLevelId,
                 SchoolClass = studentdto.SchoolClass,  
                 SchoolYear = studentdto.SchoolYear,
+                EducationLevel = studentdto.EducationLevel,
             };
         }
     }

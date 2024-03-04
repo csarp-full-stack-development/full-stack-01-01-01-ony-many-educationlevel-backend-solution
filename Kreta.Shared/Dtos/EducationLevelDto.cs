@@ -1,4 +1,4 @@
-﻿using Kreta.Shared.Models.SchoolCitizens;
+﻿using Kreta.Shared.Models;
 
 namespace Kreta.Shared.Dtos
 {
@@ -6,6 +6,6 @@ namespace Kreta.Shared.Dtos
     {
         public Guid Id { get; set; }
         public string StudentEducationLevel { get; set; } = string.Empty;
-        public int DurationOfEducation { get; set; }
+        public int DurationOfEducation { get; set; }        
     }
 }
