@@ -9,5 +9,10 @@ namespace Kreta.Backend.Repos
         public StudentRepo(IDbContextFactory<TDbContext> dbContextFactory) : base(dbContextFactory)
         {
         }
+
+        public IQueryable<Student> SelectAllIncluded()
+        {
+            return FindAll().Include(student => student.EducationLevel);
+        }
     }
 }
